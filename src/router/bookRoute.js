@@ -2,20 +2,23 @@ const express = require('express');
 const Router = express.Router();
 const cors = require('cors');
 const bookController = require('../controller/bookController')
-var whitelist = ['http://localhost:1337', 'http://localhost:1338']
-var corsOptions = {
-    origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) || !origin) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
+const multer =require('multer');
+const auth = require('../helper/auth');
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, './upload');
+  },
+  filename: function(req, file, cb){
+    cb(null, new Date().toISOString() +file.originalname)
   }
+});
+  const upload = multer({
+    storage
+  });
 
 Router  
-    .get("/",cors(corsOptions),bookController.getBook)
-    .post('/', bookController.insertBook)
+    .get("/",auth.verify,bookController.getBook)
+    .post('/',upload.single('image'), bookController.insertBook)
     .get('/page', bookController.pageBook)
     .get('/sort', bookController.sortBook)
     .get('/:id_book', bookController.detailBook)

@@ -1,6 +1,10 @@
 const bookModel = require('../models/bookModels')
 const helper = require('../helper/helper')
 const connection = require('../config/db');
+const redis = require('redis');
+require('dotenv').config();
+const client = redis.createClient(process.env.PORT_REDIS)
+
 module.exports = {
     getBook : (req, res) =>{
         const search = req.query.search;
@@ -8,7 +12,7 @@ module.exports = {
         bookModel.getBook(search)
         .then((result)=>{
             if(result.length >=1){
-                res.status(200).json({
+                res.header(200).json({
                     status: "200",
                     dataresult : result
     
@@ -50,11 +54,11 @@ module.exports = {
         })
     },
     insertBook: (req, res)=>{
-        const {title, description, image, author, id_category} = req.body;
+        const {title, description, author, id_category} = req.body;
         const data = {
         title,
         description,
-        image,
+        image: `http://localhost:1337/upload/${req.file.filename}`,
         author,
         id_category,
        created_at: new Date()
@@ -101,7 +105,16 @@ module.exports = {
         const idBook = req.params.id_book
         bookModel.deleteBookModel(idBook)
         .then((result)=>{
-            res.send(result)
+            if(result.affectedRows >= 1){
+                res.status(200).json({
+                    status: 'success',
+                    msg: 'Data deleted!',
+                });
+            }else{
+                res.status(404).json({
+                    status: 'false',
+                })
+            }
         })
         .catch(err => console.log(err))
     },

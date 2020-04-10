@@ -1,4 +1,5 @@
-const userModel = require('../models/userModels')
+const userModel = require('../models/userModels');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 module.exports ={
     getUser: (req, res)=>{
@@ -102,14 +103,29 @@ module.exports ={
         }
         userModel.loginUserModel(data.username)
         .then((result)=>{
+            
+            // let datauser = result[0];
+            // let tokenw = jwt.sign({ id: result[0].id, email: result[0].email }, process.env.SECRET_KEY);
+            // delete datauser.password;
+            // datauser.token = tokenw;
+            // res.header('auth-token', tokenw).send(tokenw);
+
+
+
             if(result.length >= 1){
                 bcrypt.compare(data.password, result[0].password, (err, reshash)=>{
                     if(reshash){
-                        res.status(200).json({
-                            status: "200",
-                            message: "Login sukses !",
-                            result: result
-                        })
+                        // res.status(200).json({
+                        //     status: "200",
+                        //     message: "Login sukses !",
+                        //     result: result
+                        // })
+                        let datauser =  result[0];
+                        let tokenw = jwt.sign({ id: datauser.id, email: datauser.email}, process.env.SECRET_KEY);
+                        delete datauser.password;
+                        datauser.token = tokenw;
+                        res.send(datauser);
+
                     }else{
                         res.status(401).json({
                             status: "401",
