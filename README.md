@@ -1,39 +1,104 @@
-# RESTFUL API WEB LIBRARY APPLICATION
+# Library Loan Book API
 
-Restful Api for web book library & application
+[![Release Version](https://img.shields.io/badge/release-v.1.0-blue)](https://github.com/HiRahmat-Dev/library-api/releases/tag/1.0) [![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
+![GitHub repo size](https://img.shields.io/github/repo-size/HiRahmat-Dev/library-api)
+![GitHub contributors](https://img.shields.io/github/contributors/HiRahmat-Dev/library-api)
+![GitHub stars](https://img.shields.io/github/stars/HiRahmat-Dev/library-api?style=social)
+![GitHub forks](https://img.shields.io/github/forks/HiRahmat-Dev/library-api?style=social)
+![Tweet](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FHiRahmat-Dev%2Flibrary-api
+)
+<p align="center">
+  <a href="https://nodejs.org/">
+    <img src="https://cdn-images-1.medium.com/max/871/1*d2zLEjERsrs1Rzk_95QU9A.png">
+  </a>
+</p>
 
-# AUTHOR
+## Table of Contents
+- [Prerequiste](#prerequiste)
+- [Instalation](#installation)
+- [Link Collection Postman](#link-collection-postman)
+- [Structure Folder](#structure-folder)
+- [Contributing](#contributing)
+- [Related Project](#related-project)
 
-Muhamad Irhashdianto
+## Prerequiste
+- Node.js - Download and Install [Node.js](https://nodejs.org/en/).
+- MySQL - Download and Install [MySQL](https://www.mysql.com/downloads/) - Make sure it's running on the default port.
+- Redis - Download and Install [Redis](https://redis.io/)
 
-# TOOLS
+## Installation
+### Clone
+```
+$ git clone https://github.com/HiRahmat-Dev/library-api.git
+$ cd library-api
+$ npm install
+```
 
-Backend : NodeJS + ExpressJS
-LIBRARY USE = cors, mysql2, body-parser, dotenv
+### Create Environment Variable
+```
+$ touch .env
+$ nano .env
+```
 
-SQL server : MariaDB / Mysql
-Interface : Phpmyadmin
+```
+DB_HOST=YOUR_DB_HOST
+DB_USER=YOUR_DB_USER
+DB_PASSWORD=YOUR_DB_PASSWORD
+DB_NAME=YOUR_TABLE_NAME
 
-# USE
+SERVER_PORT=YOUR_PORT
 
-- git clone / Download as zip
-- Extract on your Dir
-- Change Routing params *opsional
-- Create mysql schema by this API
+EMAIL=YOUR_EMAIL_ACTIVATION
+PASSWORD=YOUR_EMAIL_PASSWORD
 
-# MENU
+SECRET_KEY=YOUR_SECRET_KEY
 
-- Login
-- Register
-- Search by Author + title + Description
-- Sort Book By Title + author & Date update
-- CRUD 3 Tables Book, User & loan table
-- Pagination : Total page, Curent Page, Limit, PrevLink, NextLink
+SERVER_HOST=YOUR_HOST
+SERVER_PORT=YOUR_PORT
+SERVER_PORT_FRONT=YOUR_PORT_FRONT_END
+PORT_REDIS=YOUR_PORT_REDIS / default => 6379
 
-# OTHER INCLUDE
+```
 
-- CORS
-- Error Handling
-- Header status response
+### Start Development Server
+```
+$ npm run serve
+```
+## Link Collection Postman
+[Postman](https://www.getpostman.com/collections/bb923819853137d50b60)
 
-# version 1.0
+## Structure Folder
+```
+\---src
+|    \---config
+|    |   +---db.js            
+|    \---controller
+|    |   +---book.js
+|    |   +---user.js
+|    \---helper
+|    |   +---helper.js
+|    \---model
+|    |   +---books.js
+|    |   +---user.js
+|    \---router
+|    |   +---books.js
+|    |   +---index.js
+|    |   +---register.js
+|    |   +---user.js
++---server.js
+```
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+Fork the Project
+1. Create your Feature Branch  ```git checkout -b [feature]```
+2. Commit your Changes ```git commit -m 'Add some feature'```
+3. Push to the Branch ```git push origin [feature]```
+4. Open a Pull Request
+
+## Related Project
+
+* [`Frontend-Library-VueJS`](https://github.com/HiRahmat-Dev/library-web-vuejs)
+* [`Backend-Library`](https://github.com/HiRahmat-Dev/library-api)
