@@ -1,10 +1,10 @@
 # Library Loan Book API
 
-[![Release Version](https://img.shields.io/badge/release-v.1.0-blue)](https://github.com/HiRahmat-Dev/library-api/releases/tag/1.0) [![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
-![GitHub repo size](https://img.shields.io/github/repo-size/HiRahmat-Dev/library-api)
-![GitHub contributors](https://img.shields.io/github/contributors/HiRahmat-Dev/library-api)
-![GitHub stars](https://img.shields.io/github/stars/HiRahmat-Dev/library-api?style=social)
-![GitHub forks](https://img.shields.io/github/forks/HiRahmat-Dev/library-api?style=social)
+[![Release Version](https://img.shields.io/badge/release-v.1.0-blue)](https://github.com/slucter/restful-api-libwebreleases/tag/1.0) [![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
+![GitHub repo size](https://img.shields.io/github/repo-size/slucter/restful-api-libweb)
+![GitHub contributors](https://img.shields.io/github/contributors/slucter/restful-api-libweb/)
+![GitHub stars](https://img.shields.io/github/stars/slucter/restful-api-libweb?style=social)
+![GitHub forks](https://img.shields.io/github/forks/slucter/restful-api-libweb?style=social)
 ![Tweet](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FHiRahmat-Dev%2Flibrary-api
 )
 <p align="center">
@@ -73,18 +73,17 @@ $ npm run serve
 |    \---config
 |    |   +---db.js            
 |    \---controller
-|    |   +---book.js
-|    |   +---user.js
+|    |   +---bookController.js
+|    |   +---userController.js
 |    \---helper
 |    |   +---helper.js
 |    \---model
-|    |   +---books.js
-|    |   +---user.js
+|    |   +---booksModel.js
+|    |   +---userModel.js
 |    \---router
-|    |   +---books.js
+|    |   +---booksRouter.js
 |    |   +---index.js
-|    |   +---register.js
-|    |   +---user.js
+|    |   +---userRouter.js
 +---server.js
 ```
 
@@ -100,5 +99,5 @@ Fork the Project
 
 ## Related Project
 
-* [`Frontend-Library-VueJS`](https://github.com/HiRahmat-Dev/library-web-vuejs)
-* [`Backend-Library`](https://github.com/HiRahmat-Dev/library-api)
+* [`Frontend-Library-VueJS`](https://github.com/slucter/restful-api-libweb)
+* [`Backend-Library`](https://github.com/slucter/restful-api-libweb)
