@@ -29,8 +29,8 @@
 ## Installation
 ### Clone
 ```
-$ git clone https://github.com/HiRahmat-Dev/library-api.git
-$ cd library-api
+$ git clone https://github.com/slucter/restful-api-libweb.git
+$ cd restful-api-libweb
 $ npm install
 ```
 
